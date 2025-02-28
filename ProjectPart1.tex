@@ -1,0 +1,141 @@
+%                       This is a basic LaTeX Template
+%                       for  literature review 
+\documentclass[a4paper,12pt]{article}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+% Add local fullpage 
+\parindent=0pt          %  Switch off indent of paragraphs 
+\parskip=5pt            %  Put 5pt between each paragraph  
+%
+%                       This section generates a title page
+%                       Edit only the sections indicated to put
+%                       in the project title, your name, supervisor,
+%                       project length in weeks and submission date
+%
+\begin{document}
+\begin{minipage}[b]{110mm}
+        {\Huge\bf York University \\PHYS3130 W2025
+        \vspace*{17mm}}
+\end{minipage}
+
+\par\noindent                                           % Centre Title, and name
+\vspace*{2cm}
+\begin{center}
+        \Large\bf Protein Expression Analysis for Learning and Memory in Down Syndrome Mouse Models\\ %replace with your title
+        \Large\bf Data Exploration and Literature Review
+\end{center}
+\vspace*{1.5cm}
+\begin{center}
+        \bf Nitesh Bansal\\                 % Replace with your name
+        \url{https://github.com/niteshbansal07/phys3130_nb} \\ %use the \url{} command to include your link here 
+        February 26, 2025                       % Submission Date
+\end{center}
+\vspace*{5mm}
+%
+%                       Insert your abstract HERE
+%                       
+\begin{abstract}
+        The study examines the protein expression in the cerebral cortex of mice with Down Syndrome. The CSV contains 1080 sample data across eight different experiment groups, which include control(c-CS) and trisomic(t-CS) mice \cite{higuera2015mice}. The mice were either given cognitive training and drug treatment or not, depending on the control group. Many methods like statistical analysis, missing data handling, correlation studies, and data classification were employed to identify key proteins distinguishing learning outcomes. Findings contribute to both neuroscience and data science, showcasing the role of machine learning in biomarker discovery and cognitive disorder research.
+\end{abstract}
+
+\vspace*{1cm}
+
+\vspace*{3cm}
+SID:\hspace*{8cm}Date: Feb/20/2025
+
+
+\newpage
+%                                               Through page and setup 
+%                                               fancy headings
+\setcounter{page}{1}                            % Set page number to 1
+%
+\tableofcontents                                % Makes Table of Contents
+
+\newpage
+
+\section{Background}
+This Mice Protein Expression dataset contains measurements of protein expression levels from the cerebral cortex of mice that were controlled with some constraints. In particular, 76 proteins and their modified forms were quantified in samples from mice, which was done to understand learning and memory, to base it off to humans. \cite{higuera2015mice} The mice were divided into eight classes based on a combination of genotypes, i.e. Control and Down syndrome model, a behavioral training condition, and a drug treatment. These were named as a-b-c, where a is the genotype, b is behavior, and c is the treatment. In more context, the mice were either exposed or not exposed to a task that would induce fear and were injected with either a placebo or memory enhancer\cite{higuera2015mice}.
+\newline The experiment involved both controlled mice and genetically tweaked mice modeling Down syndrome, yielding a total of 1080 samples (observations) across 72 individual mice\cite{higuera2015mice}. Each mouse contributed multiple samples – up to 15 measurements per protein – which provided a rich, repeated-measures dataset for analysis. \cite{higuera2015mice}
+\newline
+
+\textbf{The context fear conditioning (CFC)} method was used to conduct learning experiment in which a mouse in a novel environment would be stuck with a mild foot shock, which allowed researchers to check for memeory by observing its fear response to the exposure which concluded that the untreated mice usually does not perform the learned task. In contrast, those induced with enhancer can achieve learning performance \cite{higuera2015self}.
+\newline
+From a data science view, the dataset is proven to achieve success in many factors. It contains a multivariate, high-dimensional dataset with 77 features contained in 1080 samples. The data allows the use of multiple data science techniques for handling high feature-to-sample ratios, feature selection, and more. The data have a motive of shedding some light on the learning abilities in certain genotypes, specifically in the Down syndrome genotype. \cite{higuera2015mice}. This data deals with feature selection issues as well. \cite{higuera2015mice}
+\newline
+ The data does include some flaws as well, which include missing data points, and potential outliers, providing a practical scenario for data cleaning and imputation strategies. 
+ \newline
+ All in all, the Mice Protein Expression dataset is complex enough to warrant advanced analysis, yet structured enough to yield interpretable insights, due to which it is an excellent case study for applying data science techniques to biomedicine.
+
+\newpage
+
+\section{Review of Literature}
+\subsection{Neuroscience Context to the data}
+Down Syndrome is one of the most common causes genetically, which leads to intellectual disability, which results in an extra copy of the human chromosome 21 \cite{ahmed2015protein}. The Ts65Dn mouse is a well-known DS model which exhibits many DS-like neural and cognitive deficits, including impaired learning and memory in tasks including contextual fear conditioning (CFC), which relates to the association of environment with an induction, i.e. footshock. It is well known that these mice show significantly poorer performance in CFC compared to normal mice when they were later returned to the context \cite{ahmed2015protein}. The dataset involves mice being either exposed to the context-shock condition or the alternative condition. \cite{higuera2015self} This allowed enhanced explanation in protein changes due to behavioral learning when given a shock. This experiment design enables analysis of how multiple factors such as behaviors change due to experience or pharmacological intervention interact at the molecular level.
+\newline
+Memantine is an NMDA-type glutamate receptor antagonist which has prior findings in treatments of moderate-to-severe Alzheimer's dementia \cite{ahmed2015protein} and was hypothesized to help better the DS cognitive function due to NMDA receptor hyperactivity. \cite{costa2008acute} was the first study that experimentally proved a dose of memantine in excess quantity could help rescue the learning performance of Ts65Dn in a fear conditioning test. Each trisomic and control mouse received either memantine or saline before training, which later was found to be that memantine does not restore baseline protein levels in Ts65Dn mice back to normal, instead introducing another pattern of protein changes, which leads to normalized learning outcomes \cite{ahmed2015protein}. It was also later found out that memantine did not significantly improve the young adults' suffering from DS cognition. \cite{ahmed2015protein}
+\newline
+This data contains 21-linked proteins such as DYRK1A, ITSN1, RCAN1 (also known as DSCR1), APP, and TIAM1, which are overexpressed, leading to dysregulation of signaling pathways and implicated in synaptic function \cite{ahmed2015protein}. Overexpression of these proteins in t state mice disturbs the valance of critical pathways such as glutamate receptor regulation and MAPK/ERK and mTOR signaling \cite{ahmed2015protein}. Changes in these protein networks are supposedly underpinning the learning deficits observed in Ts65Dn mice, which later proved that the brains of these mice have aberrant protein expression even without the simulation provided. 
+
+\subsection{Computational Analyses}
+The data provided is very high-dimensional proteomic data. It need a good deal of statistical analysis and machine learning techniques. There have been many studies revolving around this dataset, which includes previously cited \cite{ahmed2015protein}, which used a large variety of tools to examine how protein levels were different across different controlled variates. It used a deductive statistical approach and applied three-level mixed-effect model to analyze how each protein was affected by different constraints like genotype, training, and treatment \cite{ahmed2015protein}. The conclusion of that study was that experimental factors do affect different types of proteins differently. A cited conclusion of \cite{ahmed2015protein} shows that in initial analysis on control mice, more than half of the proteins noted changed significantly in the hippocampus region of brain where the cortex region was unaffected \cite{costa2008acute}. This proved that a key memory center like the hippocampus was responsible for learning the task in such a way. This study helped in understanding which proteins were responsible for learning and how. 
+
+
+%
+%                       Here is how to insert a centered
+%                       image
+%
+\begin{figure}[htb]     %Insert a figure as soon as possible
+        \begin{center}
+          \includegraphics[width=10cm]{pone.0129126.g001.png} %width sets the image size
+\end{center}
+\caption{\cite{higuera2015self}}
+\label{fig:prism}                 % Reference label to the figure.
+\end{figure}
+
+The new challenge that was to be tackled was to better understand that when learning, which multi-protein signature is actually true. \cite{higuera2015mice} came up with an unsupervised machine learning approach that applies SOMS (Self-Organizing Features Maps) neural networks, which helps clustering and dimensionality reduction to the data. \cite{higuera2015self}
+\newpage
+\section{Data Discussion}
+\subsection{Description and Structure}
+The dataset used in the project is a notoriously famous dataset known as the Mice Protein Dataset expression, which was originally published in 2015 by Higuera, Gardiner, and Cios at the University of California Irvine Machine Learning repository. \cite{higuera2015mice} 
+\newline
+The data contains different measurements of protein expression levels that were recorded using two different types of mouse genomes under different sets of conditions. There are a total of 1080 entries, which have multiple entries for each mouse. Each mouse has about 15 runs named accordingly in the data, resulting in slightly varying values around the true expression levels.
+\newline
+There are 82 columns of data: an identifier for the mouse (MouseID), 77 numeric features corresponding to protein or protein modification levels, and 4 categorical columns describing the class (Genotype, Treatment, Behavior, and a combined class label). These features are real-valued measurements which were taken using reverse-phase protein microarray which finds out the phosphorylation level of each target protein in the corical nuclear fraction. 
+\newline
+The comparisons plotted are mainly based on relative scale of proteins since the units are arbitrary. Most protein features range on the order of 0 to 2 (roughly), with higher values indicating greater expression. The data is not accompanied by any image component and rather each entry is a multidimensional vector of protein levels in different proteins. The dataset also contains certain categorical descriptors such as genotype, treatment, behavior, and class, based on which 8 subsections were made. The class column is essentially a composite label joining Genotype, Behavior, and Treatment for each sample. For example, a sample labeled c-CS-m would be from a Control mouse that underwent Context-Shock training and received Memantine. 
+\newline
+challenge in the dataset is the presence of missing values in some protein measurements. In total, seven proteins were noted to have one or more missing values. Not all 1080 entries have complete data for all 77 proteins. Certain proteins have a substantial number of missing entries, likely due to low signal or technical issues in some samples. For instance, the protein BCL2N is missing values in about 285 samples (roughly 26 percent of the data), and H3MeK4N has 270 missing values, among others. 
+
+\subsection{EDA and Initial Statistics}
+We start by looking at the protein expression data and how different features relate to each other. The dataset has many variables, but each can be summarized with basic statistics. Most proteins have values that cluster at lower levels, with a few samples showing much higher values. For instance, DYRK1A-N is usually between 0.2 and 0.6, but some samples have values up to 2.5, creating a skewed distribution. This is common in biological data, where most values are close to the average, and only a few are extreme outliers.
+
+Analyzing differences based on experimental groups is important. The average level of DYRK1A-N is slightly higher in trisomic (Ts65Dn) mice compared to normal controls, which makes sense since this gene is duplicated in Down syndrome. However, the difference is small, suggesting the body might compensate for the extra copy. A similar pattern appears in RCAN1 (DSCR1-N), which does not show a big increase in trisomic mice, reinforcing the idea that multiple proteins work together in complex networks rather than individual proteins being overexpressed.
+
+The impact of training (context-shock vs. shock-context) can be seen when comparing these groups. Normally, proteins like phosphorylated CREB (pCREB-N), which plays a role in memory, increase after learning. However, trisomic mice without memantine do not show this increase, suggesting that learning-related protein changes do not happen as expected. On the other hand, trisomic mice that received memantine show protein changes that are more like normal learners, particularly in pathways like ERK and mTOR, which help with memory-related protein production.
+
+Looking at how proteins relate to each other, we find patterns in their correlations. Proteins involved in the AKT/mTOR pathway, such as AKT, pAKT, mTOR, and pMTOR, tend to increase together. For example, pAKT-N and pMTOR-N have a moderate positive correlation (r = 0.55), meaning that when one is high, the other usually is too. Some protein pairs, like ERK-N and pERK-N, have very strong correlations, which suggests that some data points may be redundant. Methods like principal component analysis (PCA) or clustering can help group similar proteins together to simplify the analysis.
+
+Basic statistical tests, like t-tests and ANOVA, show clear differences between genotypes, treatments, and training conditions. A 2×2×2 ANOVA (Genotype × Treatment × Training) can highlight key interactions, such as how training increases pCREB-N in normal mice but not in trisomic ones. However, memantine treatment appears to help restore this increase, which supports its potential benefits.
+
+Overall, the dataset contains protein measurements that vary widely, show clear differences between experimental groups, and are linked through known biological pathways. These patterns support previous research showing that multiple proteins work together to separate the different groups. This sets up further analysis, such as machine learning models, to identify the most important features that predict learning ability.
+
+
+\section{Summary}
+This study brings together neuroscience and data analysis to better understand Down syndrome’s effects on learning. Research shows that cognitive issues in Down syndrome, studied through the Ts65Dn mouse model, are linked to changes in protein expression. Instead of one single protein causing learning problems, a combination of changes in key pathways—like NMDA receptors, MAPK/ERK, and mTOR—affects brain function. Studies have tested treatments like memantine, which has shown promise in helping trisomic mice regain memory function. However, figuring out which specific protein changes drive this improvement requires advanced analytical methods. In this study, various data techniques such as statistical modeling, machine learning, and clustering were used to analyze the protein data. 
+
+Our analysis supports previous findings by showing that trisomic mice have distinct protein patterns compared to normal controls, especially in response to learning tasks. Memantine treatment appears to help normalize some of these differences. This aligns with past research showing that changes in certain proteins—like SOD1, pGSK3B, and CaNA—are linked to learning success. By analyzing patterns in the dataset, we confirmed that the experimental groups have unique protein expression profiles, similar to what earlier studies found.
+
+In conclusion, combining neuroscience and data science helps us better understand complex biological processes. The research provides useful insights by showing how protein expression is connected to cognitive function. Machine learning and statistical techniques have proven useful in identifying proteins that might serve as biomarkers for learning deficits, which could aid future treatment development. This dataset also highlights how advanced data analysis can help uncover meaningful patterns in neuroscience research. Moving forward, deeper investigations into how these proteins interact could lead to better therapeutic strategies for Down syndrome and other cognitive disorders.
+
+
+%            Now build the reference list
+\bibliographystyle{apalike}    
+%\bibliographystyle{ieee}
+% The reference style is from the apalike reference style file, to  change this to IEEE you may need to download a new .bst style file
+
+
+\bibliography{micereferences,opticsjournal}       % Multiple bib files.
+
+\end{document}
+
